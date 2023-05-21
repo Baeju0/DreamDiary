@@ -23,7 +23,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/nightmoon"/>
+                android:src="@drawable/moon"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,10 +43,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
+            tools:listitem="@layout/list_item_diary"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <!--        LayoutManager, ~LinearLayout은 지속적으로 수직, 한 쪽 방향으로 쌓아나감 -->
 
     </LinearLayout>
+
+<!--    글 쓰기 버튼-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/pen"
+        android:backgroundTint="#448aff"
+        app:tint="@color/white"/>
 
 </FrameLayout>
