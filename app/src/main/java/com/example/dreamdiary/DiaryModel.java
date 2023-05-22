@@ -1,7 +1,9 @@
 package com.example.dreamdiary;
 
+import java.io.Serializable;
+
 // 다이어리 리스트 아이템을 구성하는 모델(다이어리 안에 표시될 부분)
-public class DiaryModel {
+public class DiaryModel implements Serializable { // Serializable 데이터를 한 묶음으로 전송
     int id; // 게시물 마다의 고유의 id값
     String title; // 게시물 제목
     String content; // 게시물 내용
