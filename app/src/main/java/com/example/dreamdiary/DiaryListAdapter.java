@@ -16,7 +16,7 @@ import java.util.ArrayList;
 // 빨간 줄 Alt+Enter 매직,,,
 public class DiaryListAdapter extends RecyclerView.Adapter<DiaryListAdapter.ViewHolder> {
     ArrayList<DiaryModel> mLstDiary; // 다이어리 데이터들을 들고 있는 배열
-    Context mContext; // Context, 화면 단위에서 모든 데이터들을 닮고 있는 역할
+    Context mContext; // Context, 화면 단위에서 모든 데이터들을 담고 있는 역할
 
     @NonNull
     @Override // onCreateViewHolder가 뭐지? 아이템 뷰가 최초로 생성이 될 때 호출되는 곳
