@@ -3,6 +3,7 @@ package com.example.dreamdiary;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -66,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override // 작성하기 버튼을 누를 때 호출되는 부분
             public void onClick(View view) {
-
+                
+                // 작성하기 화면으로 이동
+                Intent intent = new Intent(MainActivity.this, DiaryDetailActivity.class);
+                startActivity(intent);
             }
         });
     }

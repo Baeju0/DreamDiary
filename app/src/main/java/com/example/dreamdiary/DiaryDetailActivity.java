@@ -2,8 +2,10 @@ package com.example.dreamdiary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -86,6 +89,22 @@ public class DiaryDetailActivity extends AppCompatActivity implements View.OnCli
         }
         else if(view.getId() == R.id.tv_date) { // 날짜 선택 영역의 id
 
+            // 달력 띄우기, 사용자에게 날짜 입력 받기
+            Calendar calendar = Calendar.getInstance();
+            DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                    // 달력에 선택 된 년,월,일을 가지고 와서 다시 캘린더 함수에 넣어준 후 사용자가 선택한 요일을 알아내기
+                    Calendar innerCal = Calendar.getInstance();
+                    innerCal.set(Calendar.YEAR, year);
+                    innerCal.set(Calendar.MONTH, month);
+                    innerCal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                    mSelectedUserDate = new SimpleDateFormat("yyyy/MM/dd E요일", Locale.KOREAN).format(innerCal.getTime());
+                    mTvDate.setText(mSelectedUserDate);
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+            dialog.show(); // 달력 팝업 보여주기
         }
     }
 }
