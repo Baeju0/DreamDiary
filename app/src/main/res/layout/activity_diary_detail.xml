@@ -135,42 +135,42 @@
 
 <!--        (0:행복 1:슬픔 2:분노 3:두려움 4:들뜸 5:평온)-->
             <RadioButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:button="@null"
                 android:background="@drawable/selector_btn_happy"/>
 
             <RadioButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:button="@null"
                 android:background="@drawable/selector_btn_sad"/>
 
             <RadioButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:button="@null"
                 android:background="@drawable/selector_btn_angry"/>
 
             <RadioButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:button="@null"
                 android:background="@drawable/selector_btn_screaming"/>
 
             <RadioButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:button="@null"
                 android:background="@drawable/selector_btn_exciting"/>
 
             <RadioButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:button="@null"
                 android:background="@drawable/selector_btn_expressionless"/>

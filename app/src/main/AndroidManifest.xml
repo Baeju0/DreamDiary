@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DreamDiary"
         tools:targetApi="31">
         <activity
-            android:name=".DiaryDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
