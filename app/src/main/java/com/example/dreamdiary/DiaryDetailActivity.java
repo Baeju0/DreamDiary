@@ -31,10 +31,15 @@ public class DiaryDetailActivity extends AppCompatActivity implements View.OnCli
 
     private int mSelectedMoodType = -1; // 선택된 기분 값 (1~6까지 존재)
 
+    private DatabaseHelper mDatabaseHelper; // DB Util 객체
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_detail);
+
+        // DB 객체 생성
+        mDatabaseHelper = new DatabaseHelper(this);
 
         mTvDate = findViewById(R.id.tv_date); // date 설정
         mEtTitle = findViewById(R.id.et_title); // 제목 입력
@@ -84,6 +89,10 @@ public class DiaryDetailActivity extends AppCompatActivity implements View.OnCli
             String userDate = mSelectedUserDate; // 유저가 선택한 Date 값
 
             String writeDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.KOREAN).format(new Date()); // DB에 저장하기 위한 Date값(중복 방지로 시간까지 기록)
+
+            // DB 저장하기
+            mDatabaseHelper.setInsertDiaryList(title, content, mSelectedMoodType, userDate, writeDate);
+            Toast.makeText(this,"다이어리 저장이 완료 되었습니다!",Toast.LENGTH_SHORT).show();
 
             finish();
         }
