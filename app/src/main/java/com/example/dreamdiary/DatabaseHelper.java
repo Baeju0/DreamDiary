@@ -43,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // 다이어리 작성 데이터를 DB에 저장 (INSERTE)
     public void setInsertDiaryList(String _title, String _content, Integer _moodType, String _userDate, String _writeDate) {
         SQLiteDatabase db = getWritableDatabase(); // VALUES의 구조('" + _@@@ + "',)
-        db.execSQL("INSERT INTO DiaryInfo (title, content, moodType, userDate, writeDate) VALUES('" + _title + "','" + _content + "','" + _moodType + "','" + _userDate + "','" + _writeDate + "',)");
+        db.execSQL("INSERT INTO DiaryInfo (title, content, moodType, userDate, writeDate) VALUES('" + _title + "','" + _content + "','" + _moodType + "','" + _userDate + "','" + _writeDate + "')");
 
     }
 
