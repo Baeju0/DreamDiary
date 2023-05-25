@@ -44,7 +44,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void setInsertDiaryList(String _title, String _content, Integer _moodType, String _userDate, String _writeDate) {
         SQLiteDatabase db = getWritableDatabase(); // VALUES의 구조('" + _@@@ + "',)
         db.execSQL("INSERT INTO DiaryInfo (title, content, moodType, userDate, writeDate) VALUES('" + _title + "','" + _content + "','" + _moodType + "','" + _userDate + "','" + _writeDate + "')");
+    }
 
+
+    // 기존의 작성한 데이터를 수정 (UPDATE)
+    public void setUpdateDiaryList(String _title, String _content, Integer _moodType, String _userDate, String _writeDate, String _beforeDate) {// beforeDate는 수정하기 전 데이터가 어떤 것인지 파악하기 위해, 키 값으로 사용한다
+        SQLiteDatabase db = getWritableDatabase();
+
+        // DiaryInfo라는 테이블에다가 title, content, moodType, userDate, writeDate들을 수정해줘(_title, _content 등으로), WHERE은 어떤 데이터를 업데이트 하게? writeDate(작성일자)가 일치하는 행을 찾아서
+        db.execSQL("UPDATE DiaryInfo SET title = '" + _title + "', content = '" + _content + "', moodType = '" + _moodType + "', userDate = '" +_userDate +"', writeDate = '" + _writeDate + "' WHERE writeDate = '" + _beforeDate + "' ");
+    }
+
+    // 기존의 작성한 데이터를 삭제 (DELETE)
+    public void setDeleteDiaryList(String _writeDate) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM DiaryInfo WHERE writeDate = '" +_writeDate + "'");
     }
 
 }

@@ -3,6 +3,7 @@ package com.example.dreamdiary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -11,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.radiobutton.MaterialRadioButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -57,6 +60,23 @@ public class DiaryDetailActivity extends AppCompatActivity implements View.OnCli
         // 안드로이드 기능, 기본으로 설정할 날짜의 값을 지정 "----년/--월/--일 -요일". new Date() 디바이스 현재 날짜를 기준으로 가지고 와줌
         mSelectedUserDate = new SimpleDateFormat("yyyy/MM/dd E요일", Locale.KOREAN).format(new Date());
         mTvDate.setText(mSelectedUserDate);
+
+        // 이전 액티비티로부터 값을 전달 받기
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) { // intent안에 값이 존재하는지?
+            // 비어있지 않다면(intent putExtra의 데이터가 존재한다면 수행)
+            DiaryModel diaryModel = (DiaryModel) intent.getSerializableExtra("diaryModel"); // DiaryListAdapter 클래스에 있는 id 가져옴 (LongClick ~에 있는)
+            mDetailMode = intent.getStringExtra("mode");
+            mBeforeDate = diaryModel.getWriteDate(); // 게시글 DB UPDATE 쿼리문 처리를 위해 여기서 받아둠
+
+            // 넘겨받은 값을 활용해서 각 필드들에 설정해주기
+            mEtTitle.setText(diaryModel.getTitle());
+            mEtContent.setText(diaryModel.getContent());
+            int moodType = diaryModel.getMoodType();
+            ((MaterialRadioButton) mRgMood.getChildAt(moodType)).setChecked(true); // getChildAt = Radio 그룹의 index를 가져오기, MaterialRadioButton = Radio버튼을 의미하는 건가? 확인차
+            mTvDate.setText(diaryModel.getUserDate());
+
+        }
     }
 
     @Override

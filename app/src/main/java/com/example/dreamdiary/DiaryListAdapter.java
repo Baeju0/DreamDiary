@@ -20,11 +20,13 @@ import java.util.ArrayList;
 public class DiaryListAdapter extends RecyclerView.Adapter<DiaryListAdapter.ViewHolder> {
     ArrayList<DiaryModel> mLstDiary; // 다이어리 데이터들을 들고 있는 배열
     Context mContext; // Context, 화면 단위에서 모든 데이터들을 담고 있는 역할
+    DatabaseHelper mDatabaseHelper; // DB Helper 클래스
 
     @NonNull
     @Override // onCreateViewHolder가 뭐지? 아이템 뷰가 최초로 생성이 될 때 호출되는 곳
     public DiaryListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext();
+        mDatabaseHelper = new DatabaseHelper(mContext);
         View holder = LayoutInflater.from(mContext).inflate(R.layout.list_item_diary, parent, false); // inflate list 붙이는 역할
         return new ViewHolder(holder);
     }
@@ -33,7 +35,7 @@ public class DiaryListAdapter extends RecyclerView.Adapter<DiaryListAdapter.View
     @Override
     public void onBindViewHolder(@NonNull DiaryListAdapter.ViewHolder holder, int position) {
         // 기분의 경우의 수
-        int moodType = mLstDiary.get(position).getMoodTpye();
+        int moodType = mLstDiary.get(position).getMoodType();
         switch (moodType) {
             case 0: // 행복
                 holder.iv_mood.setImageResource(R.drawable.happy);
@@ -127,6 +129,7 @@ public class DiaryListAdapter extends RecyclerView.Adapter<DiaryListAdapter.View
                                         mContext.startActivity(diaryDetailIntent);
                                     } else {
                                         // 삭제하기 버튼
+                                        mDatabaseHelper.setDeleteDiaryList(diaryModel.getWriteDate()); // DB에서 삭제
                                         mLstDiary.remove(currentPosition); // mLstDiary.remove로 제거한 배열은 데이터만 제거된 것이기 때문에 UI에서 사라지지 않음
                                         notifyItemRemoved(currentPosition); // 그래서 notifyItemRemoved를 사용하여 리스트 UI까지 제거
                                     }
