@@ -74,7 +74,32 @@ public class DiaryDetailActivity extends AppCompatActivity implements View.OnCli
             mEtContent.setText(diaryModel.getContent());
             int moodType = diaryModel.getMoodType();
             ((MaterialRadioButton) mRgMood.getChildAt(moodType)).setChecked(true); // getChildAt = Radio 그룹의 index를 가져오기, MaterialRadioButton = Radio버튼을 의미하는 건가? 확인차
+            mSelectedUserDate = diaryModel.getUserDate();
             mTvDate.setText(diaryModel.getUserDate());
+
+            if (mDetailMode.equals("modify")) {
+                // 수정하기 모드
+                TextView tv_header_title = findViewById(R.id.tv_header_title);
+                tv_header_title.setText("일기 수정");
+
+            } else if (mDetailMode.equals("detail")) {
+                // 상세보기 모드
+                TextView tv_header_title = findViewById(R.id.tv_header_title);
+                tv_header_title.setText("일기 상세보기");
+
+                // 읽기 전용 화면으로 표시
+                mEtTitle.setEnabled(false); // setEnabled = 활성화 상태, 비활성화 상태를 줄 수 있음
+                mEtContent.setEnabled(false);
+                mTvDate.setEnabled(false);
+
+                // radio 버튼 막기 (6개의 버튼을 for 반복문으로 막기)
+                for (int i = 0; i < mRgMood.getChildCount(); i++) {
+                    mRgMood.getChildAt(i).setEnabled(false);
+                }
+
+                // 작성 완료 체크 표시를 투명으로 처리하기
+                iv_check.setVisibility(View.INVISIBLE);
+            }
 
         }
     }
@@ -107,13 +132,23 @@ public class DiaryDetailActivity extends AppCompatActivity implements View.OnCli
             String title = mEtTitle.getText().toString(); // 제목 입력 값
             String content = mEtContent.getText().toString(); // 내용 입력 값
             String userDate = mSelectedUserDate; // 유저가 선택한 Date 값
+            if (userDate.equals("")) {
+                // 별도의 날짜를 지정하지 않고 작성 완료를 누를 경우
+                userDate = mTvDate.getText().toString();
+            }
 
             String writeDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.KOREAN).format(new Date()); // DB에 저장하기 위한 Date값(중복 방지로 시간까지 기록)
 
-            // DB 저장하기
-            mDatabaseHelper.setInsertDiaryList(title, content, mSelectedMoodType, userDate, writeDate);
-            Toast.makeText(this,"다이어리 저장이 완료 되었습니다!",Toast.LENGTH_SHORT).show();
-
+            // DB 저장하기 (Activity의 현재 모드에 따라서 저장 or 수정)
+            if (mDetailMode.equals("modify")) {
+                // 게시글 수정 모드
+                mDatabaseHelper.setUpdateDiaryList(title, content, mSelectedMoodType, userDate, writeDate, mBeforeDate);
+                Toast.makeText(this,"다이어리 수정이 완료 되었습니다!",Toast.LENGTH_SHORT).show();
+            } else {
+                // 게시글 작성 모드
+                mDatabaseHelper.setInsertDiaryList(title, content, mSelectedMoodType, userDate, writeDate);
+                Toast.makeText(this,"다이어리 저장이 완료 되었습니다!",Toast.LENGTH_SHORT).show();
+            }
             finish();
         }
         else if(view.getId() == R.id.tv_date) { // 날짜 선택 영역의 id
