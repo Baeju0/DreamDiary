@@ -1,4 +1,4 @@
-package com.example.dreamdiary;
+package com.diary.dreamdiary;
 
 import android.content.Context;
 

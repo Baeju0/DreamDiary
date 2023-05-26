@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg"
-    tools:context=".DiaryDetailActivity">
+    tools:context="com.diary.dreamdiary.DiaryDetailActivity">
 
     <!-- HEADER 영역 -->
     <LinearLayout

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgm"
-    tools:context=".MainActivity">
+    tools:context="com.diary.dreamdiary.MainActivity">
 
 <!--    계층 별 레이아웃( orientation(vertical: 수직, horizontal 수평) 방향으로 쌓아 나감  -->
     <LinearLayout

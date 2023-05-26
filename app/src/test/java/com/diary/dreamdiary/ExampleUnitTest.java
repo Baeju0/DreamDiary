@@ -1,4 +1,4 @@
-package com.example.dreamdiary;
+package com.diary.dreamdiary;
 
 import org.junit.Test;
 

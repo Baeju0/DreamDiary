@@ -13,11 +13,11 @@
         android:theme="@style/Theme.DreamDiary"
         tools:targetApi="31">
         <activity
-            android:name=".DiaryDetailActivity"
+            android:name="com.diary.dreamdiary.DiaryDetailActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="true"/>
         <activity
-            android:name=".SplashActivity"
+            android:name="com.diary.dreamdiary.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <!-- 처음 실행할 때 어떤 acitvity로 할거냐?? <acitiviy>안에 있으면 됨 -->
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.diary.dreamdiary.MainActivity"
             android:exported="true"></activity>
     </application>
 
