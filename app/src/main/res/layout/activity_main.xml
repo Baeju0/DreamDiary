@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgm"
     tools:context=".MainActivity">
 
 <!--    계층 별 레이아웃( orientation(vertical: 수직, horizontal 수평) 방향으로 쌓아 나감  -->
@@ -17,20 +18,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/moon"/>
+                android:src="@drawable/stars"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dream Diary"
                 android:layout_marginLeft="4dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold|italic"/>
 
@@ -59,7 +60,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/pen"
-        android:backgroundTint="#448aff"
+        android:backgroundTint="#E5D85C"
         app:tint="@color/white"/>
 
 </FrameLayout>

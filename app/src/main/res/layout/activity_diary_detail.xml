@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
     android:orientation="vertical"
+    android:background="@drawable/bg"
     tools:context=".DiaryDetailActivity">
 
     <!-- HEADER 영역 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="horizontal">
 
         <!-- 뒤로 가기 버튼 -->
@@ -19,8 +20,10 @@
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
             android:src="@drawable/img_back"
-            app:tint="@color/black"/>
+            app:tint="@color/white"/>
 
         <!-- 현재 화면 Title -->
         <TextView
@@ -28,8 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="9dp"
             android:textSize="24sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:text="새 글 작성"/>
 
@@ -45,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
+            android:layout_marginTop="9dp"
             android:src="@drawable/img_check"
             app:tint="#43a047"/>
 
@@ -61,9 +66,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="제목"
+            android:layout_marginLeft="15dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
 <!--        사용자에게 입력을 받은 Input 영역-->
         <EditText
@@ -71,11 +77,12 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:textSize="14sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_marginTop="8dp"
             android:singleLine="true"
             android:maxLines="1"
             android:maxLength="20"
+            android:layout_margin="15dp"
             android:padding="8dp"
             android:background="@drawable/shape_input_field"/>
 
@@ -91,18 +98,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="일시"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
             android:text="2023/05/23 화요일"
-            android:textColor="#039be5"
+            android:textColor="#C4B0FF"
             android:textStyle="bold"
             android:textSize="12sp"/>
 
@@ -119,9 +128,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="기분"
+            android:layout_marginLeft="15dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
             <!-- Radio 버튼 만들기-->
         <RadioGroup
@@ -129,9 +139,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
             android:orientation="horizontal"
-            android:padding="8dp"
-            android:background="#504f4f">
+            android:padding="8dp">
 
 <!--        (0:행복 1:슬픔 2:분노 3:두려움 4:들뜸 5:평온)-->
             <RadioButton
@@ -190,10 +200,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="내용"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
         <EditText
             android:id="@+id/et_content"
@@ -208,13 +219,17 @@
             android:scrollHorizontally="false"
             android:overScrollMode="always"
             android:textSize="14sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
             android:singleLine="true"
             android:padding="8dp"
             android:background="@drawable/shape_input_field"/>
 
 
     </LinearLayout>
+
 
 </LinearLayout>
