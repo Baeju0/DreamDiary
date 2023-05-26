@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.dreamdiary'
+    namespace 'com.diary.dreamdiary'
     compileSdk 33
 
     defaultConfig {
