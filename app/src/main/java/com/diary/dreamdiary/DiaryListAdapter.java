@@ -135,6 +135,8 @@ public class DiaryListAdapter extends RecyclerView.Adapter<DiaryListAdapter.View
                                         mDatabaseHelper.setDeleteDiaryList(diaryModel.getWriteDate()); // DB에서 삭제
                                         mLstDiary.remove(currentPosition); // mLstDiary.remove로 제거한 배열은 데이터만 제거된 것이기 때문에 UI에서 사라지지 않음
                                         notifyItemRemoved(currentPosition); // 그래서 notifyItemRemoved를 사용하여 리스트 UI까지 제거
+
+                                        Toast.makeText(mContext,"다이어리 삭제가 완료 되었습니다!",Toast.LENGTH_SHORT).show(); // 삭제 Toast
                                     }
                                 }
                             }).show();
