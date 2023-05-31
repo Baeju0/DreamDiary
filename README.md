@@ -12,4 +12,6 @@
 ![Java](https://img.shields.io/badge/Java-40AEF0)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=HTML5&logoColor=white)
 
+---
+
 ![Screenshot_g](https://github.com/Baeju0/DreamDiary/assets/83051136/f8eeb434-89eb-4c83-8bd8-f19e69e0b2ae)
