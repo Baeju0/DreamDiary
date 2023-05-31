@@ -12,4 +12,4 @@
 ![Java](https://img.shields.io/badge/Java-40AEF0)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=HTML5&logoColor=white)
 
-![Screenshot1.png](..%2FDiaryDesign%2FScreenshot1.png)
+![Screenshot1](https://github.com/Baeju0/DreamDiary/assets/83051136/06693028-a86d-4ba5-a93c-e8790d860032)
