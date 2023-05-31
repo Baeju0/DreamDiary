@@ -11,5 +11,3 @@
 ![Android Studio](https://img.shields.io/badge/AndroidStudio-3DDC84?logo=AndroidStudio&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-40AEF0)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=HTML5&logoColor=white)
-
-![Screenshot1]<img https://github.com/Baeju0/DreamDiary/assets/83051136/06693028-a86d-4ba5-a93c-e8790d860032.png width="200" height="400"/>
